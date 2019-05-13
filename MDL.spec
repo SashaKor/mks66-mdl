@@ -1,6 +1,6 @@
 General Notes:
 
-Items seperated by | means you must choose one of them in an input line.
+Items separated by | means you must choose one of them in an input line.
 Items enclosed in [] are optional.
 
 For example, rotate is specified as:
@@ -45,7 +45,7 @@ All image creation commands will operate as follows:
 
 1. Generate all the points and edges for the object in question.
 2. If no coord_system is specified, transform the points against the
-   top of the stack. If there is a coord_system specified, transform 
+   top of the stack. If there is a coord_system specified, transform
    the points against that matrix instead.
 3. Render the object.
 4. Throw away the point list (if this is applicable in your implementation).
@@ -64,7 +64,7 @@ line [constants] x0 y0 z0 [coord_system0] x1 y1 z1 [coord_system1]
 
 mesh [constants] :filename [coord_system]
 			- load a mesh or set of edges (in some format that
-			  you can specify) from a file into the pointlist 
+			  you can specify) from a file into the pointlist
 			  and or edge list directly.
 
 Knobs/Animation
@@ -79,7 +79,7 @@ set knobname value	- sets a knobs value (in the symbol table).
 
 save_knobs knoblist	- saves the current values of all knobs
 			  under the name "knoblist."
-    
+
 tween start_frame end_frame knoblist0 knoblist1
 			- generates a number of frames using basename
 			  as the base filename. It will start from
@@ -107,7 +107,7 @@ ambient r g b 		- specifies how much ambient light is in the scene
 constants name kar kdr ksr kag kdg ksg kab kdb ksb [r] [g] [b]
 			- saves a set of lighting components in the
 			  symbol table under "name."
- 			- r g b intensities can be specified. If not specified, they 
+ 			- r g b intensities can be specified. If not specified, they
 			  default to 0.
 
 shading wireframe|flat|gouraud|phong|raytrace
@@ -118,7 +118,7 @@ MISC
 ----
 //			- comment to the end of a line, just like c++
 save_coord_system name
-			- Makes a copy of the top of the stack and 
+			- Makes a copy of the top of the stack and
 			  saves it in the symbol table under "name."
 
 camera eye aim		- establishes a camera. Eye and aim are
@@ -173,7 +173,7 @@ This command takes the parser description in mdl.y and builds the
 parser.  It creates two files, y.tab.c and y.tab.h. These contain a
 number of things including #defines, a routine called yyparse() which
 does the actual parse, and in our case, main(). The option "-y" tells
-bison to use yacc's naming convensions (bison is gnus implementation
+bison to use yacc's naming conventions (bison is gnus implementation
 of yacc and it has a number of extensions) specifically that the
 output files are called y.tab.h and y.tab.c. The "-d" option tells
 bison to create y.tab.h (in addition to y.tab.c) which contains the
