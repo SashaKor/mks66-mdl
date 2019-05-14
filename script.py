@@ -31,6 +31,7 @@ def run(filename):
     color = [0, 0, 0]
     tmp = new_matrix()
     ident( tmp )
+    systems= [tmp]
 
     stack = [ [x[:] for x in tmp] ]
     screen = new_screen()
@@ -48,6 +49,7 @@ def run(filename):
 
     print symbols
     for command in commands:
+        polygons = []
         if command['op'] == 'push':
             systems.append( [x[:] for x in systems[-1]] )
 
@@ -82,7 +84,7 @@ def run(filename):
                 reflect = command['constants']
 
             draw_polygons(polygons, screen, zbuffer, view, ambient, light, symbols, reflect)
-            polygons = []
+            #polygons = []
 
         elif command['op'] == 'box':
             #print 'BOX\t' + str(args)
@@ -97,7 +99,7 @@ def run(filename):
                 reflect = command['constants']
 
             draw_polygons(polygons, screen, zbuffer, view, ambient, light, symbols, reflect)
-            polygons = []
+            #polygons = []
 
         elif command['op'] == 'circle':
             #print 'CIRCLE\t' + str(args)
