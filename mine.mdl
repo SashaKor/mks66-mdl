@@ -1,0 +1,35 @@
+// Note: This uses the light values in the provided source code.
+constants shiny_purple 0.3 0.2 0.8 0.3 0 0 0.3 0.2 0.8
+constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
+constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
+push
+move 250 100 0
+rotate x 30
+scale 1 1 0.5
+torus dull_yellow 0 0 0 30 175
+push
+move 0 50 0
+torus shiny_teal 0 0 0 30 165
+push
+move 0 50 0
+torus shiny_purple 0 0 0 30 155
+push
+move 0 50 0
+torus dull_yellow 0 0 0 30 145
+push
+move 0 50 0
+torus shiny_teal 0 0 0 30 135
+push
+move 0 50 0
+torus shiny_purple 0 0 0 30 125
+push
+move 0 50 0
+torus dull_yellow 0 0 0 30 115
+push
+move 0 50 0
+torus shiny_teal 0 0 0 30 105
+push
+move 0 50 0
+torus shiny_purple 0 0 0 30 95
+display
+save mine.png

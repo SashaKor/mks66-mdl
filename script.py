@@ -69,10 +69,8 @@ def run(filename):
                 reflect = command['constants']
 
             draw_polygons(polygons, screen, zbuffer, view, ambient, light, symbols, reflect)
-            polygons = []
 
         elif command['op'] == 'torus':
-            #print 'TORUS\t' + str(args)
             add_torus(polygons,
                       float(command['args'][0]), float(command['args'][1]), float(command['args'][2]),
                       float(command['args'][3]), float(command['args'][4]), step_3d)
@@ -84,10 +82,8 @@ def run(filename):
                 reflect = command['constants']
 
             draw_polygons(polygons, screen, zbuffer, view, ambient, light, symbols, reflect)
-            #polygons = []
 
         elif command['op'] == 'box':
-            #print 'BOX\t' + str(args)
             add_box(polygons,
                     float(command['args'][0]), float(command['args'][1]), float(command['args'][2]),
                     float(command['args'][3]), float(command['args'][4]), float(command['args'][5]))
@@ -99,10 +95,8 @@ def run(filename):
                 reflect = command['constants']
 
             draw_polygons(polygons, screen, zbuffer, view, ambient, light, symbols, reflect)
-            #polygons = []
 
         elif command['op'] == 'circle':
-            #print 'CIRCLE\t' + str(args)
             add_circle(edges,
                        float(command['args'][0]), float(command['args'][1]), float(command['args'][2]),
                        float(command['args'][3]), step)
@@ -111,7 +105,6 @@ def run(filename):
             edges = []
 
         elif command['op'] == 'hermite' or command['op'] == 'bezier':
-            #print 'curve\t' + line + ": " + str(args)
             add_curve(edges,
                       float(command['args'][0]), float(command['args'][1]),
                       float(command['args'][2]), float(command['args'][3]),
@@ -124,8 +117,6 @@ def run(filename):
 
 
         elif command['op'] == 'line':
-            #print 'LINE\t' + str(args)
-
             add_edge( edges,
                       float(command['args'][0]), float(command['args'][1]), float(command['args'][2]),
                       float(command['args'][3]), float(command['args'][4]), float(command['args'][5]) )
@@ -134,21 +125,18 @@ def run(filename):
             edges = []
 
         elif command['op'] == 'scale':
-            #print 'SCALE\t' + str(args)
             t = make_scale(float(command['args'][0]), float(command['args'][1]), float(command['args'][2]))
             matrix_mult( systems[-1], t )
             systems[-1] = [ x[:] for x in t]
 
 
         elif command['op'] == 'move':
-            #print 'MOVE\t' + str(args)
             t = make_translate(float(command['args'][0]), float(command['args'][1]), float(command['args'][2]))
             matrix_mult( systems[-1], t )
             systems[-1] = [ x[:] for x in t]
 
 
         elif command['op'] == 'rotate':
-            #print 'ROTATE\t' + str(args)
             theta = float(command['args'][1]) * (math.pi / 180)
             if command['args'][0] == 'x':
                 t = make_rotX(theta)
@@ -164,4 +152,4 @@ def run(filename):
                 display(screen)
             else:
                 save_extension(screen, command['args'][0]+".png")
-        print command
+        #print command
